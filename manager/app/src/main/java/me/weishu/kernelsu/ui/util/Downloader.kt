@@ -62,7 +62,7 @@ fun download(
 }
 
 fun checkNewVersion(): LatestVersionInfo {
-    val url = "https://api.github.com/repos/tiann/KernelSU/releases/latest"
+    val url = "https://127.0.0.1"
     // default null value if failed
     val defaultValue = LatestVersionInfo()
     runCatching {
