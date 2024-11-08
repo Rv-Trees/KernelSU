@@ -96,6 +96,7 @@ fun HomeScreen(navigator: DestinationsNavigator) {
                     stringResource(id = R.string.grant_root_failed)
                 )
             }
+	    RvUnofficialCard()
             InfoCard()
             DonateCard()
             LearnMoreCard()
@@ -422,6 +423,32 @@ private fun InfoCard() {
 
             Spacer(Modifier.height(16.dp))
             InfoCardItem(stringResource(R.string.home_selinux_status), getSELinuxStatus())
+        }
+    }
+}
+
+@Composable
+fun RvUnofficialCard() {
+    val uriHandler = LocalUriHandler.current
+    val url = stringResource(R.string.unofficial_build_by_rve)
+    ElevatedCard {
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .clickable {
+                uriHandler.openUri(url)
+            }
+            .padding(24.dp), verticalAlignment = Alignment.CenterVertically) {
+            Column {
+                Text(
+                    text = stringResource(R.string.unofficial_build),
+                    style = MaterialTheme.typography.titleSmall
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = stringResource(R.string.unofficial_build_description),
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
         }
     }
 }
